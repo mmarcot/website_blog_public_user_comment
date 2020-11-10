@@ -28,14 +28,14 @@
                         <textarea class="form-control o_website_form_input" name="content" required=""></textarea>
                     </div>
                 </div>
-                <!-- <div class="form-group row form-field d-none">
+                <div class="form-group row form-field d-none">
                     <div class="col-lg-3 col-md-4">
-                        <label class="col-form-label" for="email_to">Email To</label>
+                        <label class="col-form-label" for="blog_post_id">Blog post</label>
                     </div>
                     <div class="col-lg-7 col-md-8">
-                        <input type="hidden" class="form-control o_website_form_input" name="email_to" t-att-value="res_company.email"/>
+                        <input type="hidden" class="form-control o_website_form_input" name="blog_post_id" t-att-value="blog_post.id"/>
                     </div>
-                </div> -->
+                </div>
                 <div class="form-group row">
                     <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
                         <a href="#" class="btn btn-primary btn-lg o_website_form_send">Send</a>
@@ -43,6 +43,14 @@
                     </div>
                 </div>
             </form>
+            <div id="public_comments">
+                <t t-foreach="blog_post.public_comment_ids" t-as="comment">
+                    <p>
+                        <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
+                        <t t-esc="comment.content"/>
+                    </p>
+                </t>
+            </div>
 		</div>
 	</xpath>
 </template>

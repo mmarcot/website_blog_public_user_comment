@@ -13,6 +13,7 @@
         'name',
         'email',
         'content',
+        'blog_post_id',
         ]"/>
     </function>
 </data>
