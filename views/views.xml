@@ -2,6 +2,14 @@
 <data>
 <template id="opt_blog_post_comment" name="Allow Comments" inherit_id="website_blog.opt_blog_post_comment">
 	<xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
+        <div id="public_comments">
+            <t t-foreach="blog_post.public_comment_ids" t-as="comment">
+                <p>
+                    <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
+                    <t t-esc="comment.content"/>
+                </p>
+            </t>
+        </div>
 		<div id="o_wblog_post_comments" t-attf-class="pt-4 o_wblog_read">
 			<form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="public.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
                 <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
@@ -43,14 +51,6 @@
                     </div>
                 </div>
             </form>
-            <div id="public_comments">
-                <t t-foreach="blog_post.public_comment_ids" t-as="comment">
-                    <p>
-                        <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
-                        <t t-esc="comment.content"/>
-                    </p>
-                </t>
-            </div>
 		</div>
 	</xpath>
 </template>
