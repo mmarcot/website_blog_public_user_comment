@@ -62,7 +62,7 @@
         <field name="name">public_comment_tree</field>
         <field name="model">public.comment</field>
         <field name="arch" type="xml">
-            <tree string="Public comments">
+            <tree string="Public comments" default_order="create_date desc">
                 <field name="name"/>
                 <field name="email"/>
                 <field name="content"/>
@@ -71,6 +71,24 @@
                 <field name="state"/>
                 <button name="validate_comment" type="object" string="Validate" class="btn btn-success" attrs="{'invisible':[('state','!=','new')]}"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="public_comment_search" model="ir.ui.view">
+        <field name="name">public_comment_search</field>
+        <field name="model">public.comment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="content"/>
+
+                <filter name="new_comments" string="New comments" domain="[('state', '=', 'new')]"/>
+
+                <group string="Group By">
+                    <filter name="group_by_blog_post" string="Blog post" context="{'group_by': 'blog_post_id'}"/>
+                </group>
+            </search>
         </field>
     </record>
 
