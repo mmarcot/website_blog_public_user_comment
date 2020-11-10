@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <data>
-    <record id="website_blog_public_user_comment.model_website_blog_public_user_comment_comment" model="ir.model">
+    <record id="website_blog_public_user_comment.model_public_comment" model="ir.model">
       <field name="website_form_key">send_public_comment</field>
-      <field name="website_form_default_field_id" ref="website_blog_public_user_comment.field_website_blog_public_user_comment_comment__content" />
+      <field name="website_form_default_field_id" ref="website_blog_public_user_comment.field_public_comment__content" />
       <field name="website_form_access">True</field>
       <field name="website_form_label">Send a Public Comment</field>
     </record>
     <function model="ir.model.fields" name="formbuilder_whitelist">
-      <value>website_blog_public_user_comment.comment</value>
+      <value>public.comment</value>
       <value eval="[
         'name',
         'email',

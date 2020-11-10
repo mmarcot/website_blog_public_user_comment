@@ -3,8 +3,8 @@
 from odoo import models, fields, api
 
 
-class website_blog_public_user_comment(models.Model):
-    _name = 'website_blog_public_user_comment.comment'
+class PublicComment(models.Model):
+    _name = 'public.comment'
     _description = 'Public user blog comment'
 
     name = fields.Char()
@@ -16,4 +16,4 @@ class website_blog_public_user_comment(models.Model):
 class BlogPost(models.Model):
     _inherit = 'blog.post'
 
-    public_comment_ids = fields.One2many('website_blog_public_user_comment.comment', 'blog_post_id', 'Public comments')
+    public_comment_ids = fields.One2many('public.comment', 'blog_post_id', 'Public comments')
