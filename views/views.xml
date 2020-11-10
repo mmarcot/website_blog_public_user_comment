@@ -1,60 +1,51 @@
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="website_blog_public_user_comment.list">
-      <field name="name">website_blog_public_user_comment list</field>
-      <field name="model">website_blog_public_user_comment.website_blog_public_user_comment</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
--->
+<data>
+<template id="opt_blog_post_comment" name="Allow Comments" inherit_id="website_blog.opt_blog_post_comment">
+	<xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
+		<div id="o_wblog_post_comments" t-attf-class="pt-4 o_wblog_read">
+			<form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="website_blog_public_user_comment.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
+                <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                    <div class="col-lg-3 col-md-4">
+                        <label class="col-form-label" for="name">Your Name</label>
+                    </div>
+                    <div class="col-lg-7 col-md-8">
+                        <input type="text" class="form-control o_website_form_input" name="name" required=""/>
+                    </div>
+                </div>
+                <div class="form-group row form-field o_website_form_required_custom">
+                    <div class="col-lg-3 col-md-4">
+                        <label class="col-form-label" for="email">Email</label>
+                    </div>
+                    <div class="col-lg-7 col-md-8">
+                        <input type="email" class="form-control o_website_form_input" name="email" required=""/>
+                    </div>
+                </div>
+                <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                    <div class="col-lg-3 col-md-4">
+                        <label class="col-form-label" for="content">Comment</label>
+                    </div>
+                    <div class="col-lg-7 col-md-8">
+                        <textarea class="form-control o_website_form_input" name="content" required=""></textarea>
+                    </div>
+                </div>
+                <!-- <div class="form-group row form-field d-none">
+                    <div class="col-lg-3 col-md-4">
+                        <label class="col-form-label" for="email_to">Email To</label>
+                    </div>
+                    <div class="col-lg-7 col-md-8">
+                        <input type="hidden" class="form-control o_website_form_input" name="email_to" t-att-value="res_company.email"/>
+                    </div>
+                </div> -->
+                <div class="form-group row">
+                    <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                        <a href="#" class="btn btn-primary btn-lg o_website_form_send">Send</a>
+                        <span id="o_website_form_result"></span>
+                    </div>
+                </div>
+            </form>
+		</div>
+	</xpath>
+</template>
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="website_blog_public_user_comment.action_window">
-      <field name="name">website_blog_public_user_comment window</field>
-      <field name="res_model">website_blog_public_user_comment.website_blog_public_user_comment</field>
-      <field name="view_mode">tree,form</field>
-    </record>
--->
-
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="website_blog_public_user_comment.action_server">
-      <field name="name">website_blog_public_user_comment server</field>
-      <field name="model_id" ref="model_website_blog_public_user_comment_website_blog_public_user_comment"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="website_blog_public_user_comment" id="website_blog_public_user_comment.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="website_blog_public_user_comment.menu_1" parent="website_blog_public_user_comment.menu_root"/>
-    <menuitem name="Menu 2" id="website_blog_public_user_comment.menu_2" parent="website_blog_public_user_comment.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="website_blog_public_user_comment.menu_1_list" parent="website_blog_public_user_comment.menu_1"
-              action="website_blog_public_user_comment.action_window"/>
-    <menuitem name="Server to list" id="website_blog_public_user_comment" parent="website_blog_public_user_comment.menu_2"
-              action="website_blog_public_user_comment.action_server"/>
--->
-  </data>
+</data>
 </odoo>

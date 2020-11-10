@@ -1,18 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class website_blog_public_user_comment(models.Model):
-#     _name = 'website_blog_public_user_comment.website_blog_public_user_comment'
-#     _description = 'website_blog_public_user_comment.website_blog_public_user_comment'
+class website_blog_public_user_comment(models.Model):
+    _name = 'website_blog_public_user_comment.comment'
+    _description = 'Public user blog comment'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    name = fields.Char()
+    email = fields.Char()
+    content = fields.Text()
+
