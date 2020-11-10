@@ -102,7 +102,7 @@
             <tree string="Comments" default_order="create_date desc">
                 <field name="name"/>
                 <field name="email"/>
-                <field name="content"/>
+                <field name="limited_content" widget="char"/>
                 <field name="blog_post_id"/>
                 <field name="create_date"/>
                 <field name="state"/>

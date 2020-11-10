@@ -11,6 +11,7 @@ class PublicComment(models.Model):
     state = fields.Selection([('new','New'), ('validated','Validated')], 'State', default='new', required=True, copy=False, readonly=True)
     email = fields.Char()
     content = fields.Text('Content', required=True)
+    limited_content = fields.Text('Content', compute='_compute_limited_content')
     blog_post_id = fields.Many2one('blog.post', 'Blog post', ondelete='cascade', required=True)
 
     def button_validate_comment(self):
@@ -26,6 +27,10 @@ class PublicComment(models.Model):
             record.unlink()
         return self.env.ref('website_blog_public_user_comment.action_blog_public_comments').read()[0]   
 
+    @api.depends('content')
+    def _compute_limited_content(self):
+        for record in self:
+            record.limited_content = record.content[:60].replace('\n', ' ')
 
 class BlogPost(models.Model):
     _inherit = 'blog.post'
