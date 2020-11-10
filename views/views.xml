@@ -121,9 +121,11 @@
                 <field name="content"/>
 
                 <filter name="new_comments" string="New comments" domain="[('state', '=', 'new')]"/>
+                <filter name="validated_comments" string="Validated comments" domain="[('state', '=', 'validated')]"/>
 
                 <group string="Group By">
                     <filter name="group_by_blog_post" string="Blog post" context="{'group_by': 'blog_post_id'}"/>
+                    <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
                 </group>
             </search>
         </field>
