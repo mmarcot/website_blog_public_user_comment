@@ -4,10 +4,12 @@
         <xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
             <div id="public_comments">
                 <t t-foreach="blog_post.public_comment_ids" t-as="comment">
-                    <p>
-                        <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
-                        <t t-esc="comment.content"/>
-                    </p>
+                    <t t-if="comment.state == 'validated'">
+                        <p>
+                            <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
+                            <t t-esc="comment.content"/>
+                        </p>
+                    </t>
                 </t>
             </div>
             <div id="o_wblog_post_comments" t-attf-class="pt-4 o_wblog_read">
@@ -54,6 +56,23 @@
             </div>
         </xpath>
     </template>
+
+
+    <record id="public_comment_tree" model="ir.ui.view">
+        <field name="name">public_comment_tree</field>
+        <field name="model">public.comment</field>
+        <field name="arch" type="xml">
+            <tree string="Public comments">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="content"/>
+                <field name="blog_post_id"/>
+                <field name="create_date"/>
+                <field name="state"/>
+                <button name="validate_comment" type="object" string="Validate" class="btn btn-success" attrs="{'invisible':[('state','!=','new')]}"/>
+            </tree>
+        </field>
+    </record>
 
     <record id="action_blog_public_comments" model="ir.actions.act_window">
         <field name="name">Public comments</field>

@@ -8,9 +8,14 @@ class PublicComment(models.Model):
     _description = 'Public user blog comment'
 
     name = fields.Char()
+    state = fields.Selection([('new','New'), ('validated','Validated'), ('rejected','Rejected')], 'State', default='new', required=True)
     email = fields.Char()
     content = fields.Text()
     blog_post_id = fields.Many2one('blog.post', 'Blog post', ondelete='cascade', required=True)
+
+    def validate_comment(self):
+        for record in self:
+            record.state = 'validated'          
 
 
 class BlogPost(models.Model):
