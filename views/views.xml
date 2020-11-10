@@ -58,11 +58,38 @@
     </template>
 
 
+    <record id="public_comment_form" model="ir.ui.view">
+        <field name="name">public_comment_form</field>
+        <field name="model">public.comment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="4" col="4">
+                        <group colspan="2" col="2">
+                            <field name="blog_post_id"/>
+                            <field name="name"/>
+                            <field name="email"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="create_date"/>
+                            <field name="state"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Comment">
+                                <field name="content" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="public_comment_tree" model="ir.ui.view">
         <field name="name">public_comment_tree</field>
         <field name="model">public.comment</field>
         <field name="arch" type="xml">
-            <tree string="Public comments" default_order="create_date desc">
+            <tree string="Comments" default_order="create_date desc">
                 <field name="name"/>
                 <field name="email"/>
                 <field name="content"/>
@@ -93,11 +120,11 @@
     </record>
 
     <record id="action_blog_public_comments" model="ir.actions.act_window">
-        <field name="name">Public comments</field>
+        <field name="name">Comments</field>
         <field name="res_model">public.comment</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="menu_blog_public_comment" parent="website_blog.menu_website_blog_root_global" name="Public comments" action="action_blog_public_comments"/>
+    <menuitem id="menu_blog_public_comment" parent="website_blog.menu_website_blog_root_global" name="Comments" action="action_blog_public_comments"/>
 
 </data>
 </odoo>
