@@ -8,14 +8,23 @@ class PublicComment(models.Model):
     _description = 'Public user blog comment'
 
     name = fields.Char('Name', required=True)
-    state = fields.Selection([('new','New'), ('validated','Validated'), ('rejected','Rejected')], 'State', default='new', required=True)
+    state = fields.Selection([('new','New'), ('validated','Validated')], 'State', default='new', required=True, copy=False, readonly=True)
     email = fields.Char()
     content = fields.Text('Content', required=True)
     blog_post_id = fields.Many2one('blog.post', 'Blog post', ondelete='cascade', required=True)
 
-    def validate_comment(self):
+    def button_validate_comment(self):
         for record in self:
-            record.state = 'validated'          
+            record.state = 'validated'   
+
+    def button_back_to_new(self):
+        for record in self:
+            record.state = 'new'
+
+    def button_unlink(self):
+        for record in self:
+            record.unlink()
+        return self.env.ref('website_blog_public_user_comment.action_blog_public_comments').read()[0]   
 
 
 class BlogPost(models.Model):

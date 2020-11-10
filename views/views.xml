@@ -63,6 +63,17 @@
         <field name="model">public.comment</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="button_validate_comment" string="Validate" type="object"
+                        class="btn btn-success"
+                        attrs="{'invisible': [('state', 'in', ['validated'])]}"/>
+                    <button name="button_back_to_new" string="Back to new" type="object"
+                        attrs="{'invisible': [('state', 'in', ['new'])]}"/>
+                    <button name="button_unlink" type="object" string="Delete comment" 
+                        confirm="Do you really want to delete the comment ?" class="btn btn-danger"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,validated"/>
+                </header>
+
                 <sheet>
                     <group colspan="4" col="4">
                         <group colspan="2" col="2">
@@ -72,7 +83,6 @@
                         </group>
                         <group colspan="2" col="2">
                             <field name="create_date"/>
-                            <field name="state"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Comment">
@@ -96,7 +106,7 @@
                 <field name="blog_post_id"/>
                 <field name="create_date"/>
                 <field name="state"/>
-                <button name="validate_comment" type="object" string="Validate" class="btn btn-success" attrs="{'invisible':[('state','!=','new')]}"/>
+                <button name="button_validate_comment" type="object" string="Validate" class="btn btn-success" attrs="{'invisible':[('state','!=','new')]}"/>
             </tree>
         </field>
     </record>
