@@ -64,6 +64,28 @@
         </xpath>
     </template>
 
+    <!-- Update header comments counter -->
+    <template id="opt_blog_post_regular_cover" name="'Regular' Cover" inherit_id="website_blog.opt_blog_post_regular_cover">
+        <xpath expr="//i[hasclass('fa-comment')]/../.." position="replace">
+            <div class="text-muted mb-2">
+                <i class="fa fa-clock-o fa-fw"/>
+                <span t-field="blog_post.post_date" class="text-muted" t-options='{"format": "d MMMM, yyyy"}'/>
+                <span>by
+                    <t t-call="website_blog.post_author">
+                        <t t-set="additionnal_classes" t-value="'d-inline-flex mr-2'"/>
+                        <t t-set="hide_date" t-value="True"/>
+                    </t>
+                </span>
+                <span t-if="len(blog_post.validated_comment_ids) > 0" class="text-nowrap pl-2">|
+                    <i class="fa fa-comment text-muted mr-1"/><t t-esc="len(blog_post.validated_comment_ids)"/>
+                    <t t-if="len(blog_post.validated_comment_ids)>1">Comments</t>
+                    <t t-else="">Comment</t>
+                </span>
+                <span t-elif="opt_blog_post_comment">| No comments yet</span>
+            </div>
+        </xpath>
+    </template>
+
 
     <record id="public_comment_form" model="ir.ui.view">
         <field name="name">public_comment_form</field>
