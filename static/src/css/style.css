@@ -1,0 +1,25 @@
+
+#comments_wrapper {
+    background-color: #fafafa;
+    border-top: 2px solid #f5f5f5;
+}
+
+#comments_wrapper h2 {
+    font-family: "Permanent Marker", Helvetica, Arial, sans-serif;
+}
+
+.comment_name {
+    color:#02b1dd;
+    font-family: "Permanent Marker", Helvetica, Arial, sans-serif;
+}
+
+.comment_date {
+    font-size: 0.75em;
+    color: gray;
+    font-style: italic;
+    margin-left: 6px;
+}
+
+.comment_content {
+    font-style: italic;
+}
