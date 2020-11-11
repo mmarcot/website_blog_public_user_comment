@@ -2,57 +2,63 @@
 <data>
     <template id="opt_blog_post_comment" name="Allow Comments" inherit_id="website_blog.opt_blog_post_comment">
         <xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
-            <div id="public_comments">
-                <t t-foreach="blog_post.public_comment_ids" t-as="comment">
-                    <t t-if="comment.state == 'validated'">
-                        <p>
-                            <t t-esc="comment.name"/> <t t-esc="comment.email"/><br/>
-                            <t t-esc="comment.content"/>
-                        </p>
+            <hr class="my-5"/>
+            <div class="col-sm-8 mx-auto bg-light py-3">
+                <div id="public_comments" t-if="len(blog_post.public_comment_ids)">
+                    <h2 class="text-center">Comments area</h2>
+                    <t t-foreach="blog_post.public_comment_ids" t-as="comment">
+                        <div id="public_comment" t-if="comment.state == 'validated'" class="my-3">
+                            <div>
+                                <strong><t t-esc="comment.name"/></strong>
+                            </div>
+                            <span t-field="comment.content"/>
+                        </div>
+                        <hr/>
                     </t>
-                </t>
-            </div>
-            <div id="o_wblog_post_comments" t-attf-class="pt-4 o_wblog_read">
-                <form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="public.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
-                    <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
-                        <div class="col-lg-3 col-md-4">
-                            <label class="col-form-label" for="name">Your Name</label>
+                </div>
+                <h2 class="text-center">Leave a comment</h2>
+                <div id="o_wblog_post_comments" t-attf-class="o_wblog_read ml-auto">
+                    <form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="public.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
+                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4">
+                                <label class="col-form-label" for="name">Your Name</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="text" class="form-control o_website_form_input" name="name" required=""/>
+                            </div>
                         </div>
-                        <div class="col-lg-7 col-md-8">
-                            <input type="text" class="form-control o_website_form_input" name="name" required=""/>
+                        <div class="form-group row form-field o_website_form_custom">
+                            <div class="col-lg-3 col-md-4">
+                                <label class="col-form-label" for="email">Email</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="email" class="form-control o_website_form_input" name="email"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row form-field o_website_form_custom">
-                        <div class="col-lg-3 col-md-4">
-                            <label class="col-form-label" for="email">Email</label>
+                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4">
+                                <label class="col-form-label" for="content">Comment</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <textarea class="form-control o_website_form_input" rows="5" name="content" required=""></textarea>
+                            </div>
                         </div>
-                        <div class="col-lg-7 col-md-8">
-                            <input type="email" class="form-control o_website_form_input" name="email"/>
+                        <div class="form-group row form-field d-none">
+                            <div class="col-lg-3 col-md-4">
+                                <label class="col-form-label" for="blog_post_id">Blog post</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="hidden" class="form-control o_website_form_input" name="blog_post_id" t-att-value="blog_post.id"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
-                        <div class="col-lg-3 col-md-4">
-                            <label class="col-form-label" for="content">Comment</label>
+                        <div class="form-group row">
+                            <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
+                                <a href="#" class="btn btn-primary btn-lg o_website_form_send">Send</a>
+                                <span id="o_website_form_result"></span>
+                            </div>
                         </div>
-                        <div class="col-lg-7 col-md-8">
-                            <textarea class="form-control o_website_form_input" name="content" required=""></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row form-field d-none">
-                        <div class="col-lg-3 col-md-4">
-                            <label class="col-form-label" for="blog_post_id">Blog post</label>
-                        </div>
-                        <div class="col-lg-7 col-md-8">
-                            <input type="hidden" class="form-control o_website_form_input" name="blog_post_id" t-att-value="blog_post.id"/>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
-                            <a href="#" class="btn btn-primary btn-lg o_website_form_send">Send</a>
-                            <span id="o_website_form_result"></span>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </xpath>
     </template>
