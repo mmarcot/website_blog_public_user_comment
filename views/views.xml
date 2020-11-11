@@ -5,7 +5,7 @@
             <hr class="my-5"/>
             <div class="col-sm-8 mx-auto bg-light py-3">
                 <div id="public_comments" t-if="len(blog_post.public_comment_ids)">
-                    <h2 class="text-center">Comments area</h2>
+                    <h2 class="text-center">Comment section</h2>
                     <t t-foreach="blog_post.public_comment_ids" t-as="comment">
                         <div id="public_comment" t-if="comment.state == 'validated'" class="my-3">
                             <div>
@@ -16,7 +16,7 @@
                         <hr/>
                     </t>
                 </div>
-                <h2 class="text-center">Leave a comment</h2>
+                <h2 class="text-center">Leave us a comment</h2>
                 <div id="o_wblog_post_comments" t-attf-class="o_wblog_read ml-auto">
                     <form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="public.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
                         <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
