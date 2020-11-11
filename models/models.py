@@ -36,3 +36,12 @@ class BlogPost(models.Model):
     _inherit = 'blog.post'
 
     public_comment_ids = fields.One2many('public.comment', 'blog_post_id', 'Public comments')
+    validated_comment_ids = fields.One2many('public.comment', compute='_compute_validated_comment_ids')
+
+    @api.depends('public_comment_ids')
+    def _compute_validated_comment_ids(self):
+        for blog_post in self:
+            blog_post.validated_comment_ids = self.env['public.comment'].search([
+                ('state', '=', 'validated'),
+                ('blog_post_id', '=', blog_post.id),
+            ], order='create_date')
