@@ -3,7 +3,7 @@ Website Blog Public User Comment
 
 This module allows users to comment your blog posts without having to register.
 
-![Web form view](https://github.com/mmarcot/website_blog_public_user_comment/blob/main/static/src/img/web_form.png?raw=true)
+<img src="https://github.com/mmarcot/website_blog_public_user_comment/blob/main/static/src/img/web_form.png?raw=true" width="500" />
 
 # Usage
 
