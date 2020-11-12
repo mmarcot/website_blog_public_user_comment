@@ -1,110 +1,5 @@
 <odoo>
 <data>
-    <template id="opt_blog_post_comment" name="Allow Comments" inherit_id="website_blog.opt_blog_post_comment">
-        <xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
-            <hr class="my-5"/>
-            <div id="comments_wrapper" class="col-md-8 mx-auto py-3 shadow">
-                <div id="public_comments" t-if="len(blog_post.validated_comment_ids)">
-                    <h2 class="text-center">Comment section</h2>
-                    <t t-foreach="blog_post.validated_comment_ids" t-as="comment">
-                        <div class="my-3">
-                            <div>
-                                <span class="comment_name" t-field="comment.name"/>
-                                <span class="comment_date"><span t-field="comment.create_date"/></span>
-                            </div>
-                            <span class="comment_content" t-field="comment.content"/>
-                        </div>
-                        <hr/>
-                    </t>
-                </div>
-                <h2 class="text-center">Leave us a comment</h2>
-                <div id="o_wblog_post_comments" t-attf-class="o_wblog_read ml-auto">
-                    <form id="comment_form" t-ignore="true" action="/website_form/" method="post" data-model_name="public.comment" class="s_website_form container-fluid mt32" enctype="multipart/form-data">
-                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
-                            <div class="col-lg-3 col-md-4">
-                                <label class="col-form-label" for="name">Your Name</label>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <input type="text" class="form-control o_website_form_input" name="name" required=""/>
-                            </div>
-                        </div>
-                        <div class="form-group row form-field o_website_form_custom">
-                            <div class="col-lg-3 col-md-4">
-                                <label class="col-form-label" for="email">Email</label>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <input type="email" class="form-control o_website_form_input" name="email"/>
-                            </div>
-                        </div>
-                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
-                            <div class="col-lg-3 col-md-4">
-                                <label class="col-form-label" for="content">Comment</label>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <textarea class="form-control o_website_form_input" rows="5" name="content" required=""></textarea>
-                            </div>
-                        </div>
-                        <hr/>
-                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
-                            <div class="col-lg-3 col-md-4">
-                                <t t-set="nb_alea" t-value="blog_post.get_out_img_nb()"/>
-                                <img class="out_img" t-att-src="'/website_blog_public_user_comment/static/src/img/out_{}.png'.format(nb_alea)" alt="out"/>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <input type="text" class="form-control o_website_form_input" name="outtxt" required=""/>
-                            </div>
-                        </div>
-                        <div class="form-group row form-field d-none">
-                            <div class="col-lg-3 col-md-4">
-                                <label class="col-form-label" for="nb_alea">Nb alea</label>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <input type="hidden" class="form-control o_website_form_input" name="nb_alea" t-att-value="nb_alea"/>
-                            </div>
-                        </div>
-                        <div class="form-group row form-field d-none">
-                            <div class="col-lg-3 col-md-4">
-                                <label class="col-form-label" for="blog_post_id">Blog post</label>
-                            </div>
-                            <div class="col-lg-7 col-md-8">
-                                <input type="hidden" class="form-control o_website_form_input" name="blog_post_id" t-att-value="blog_post.id"/>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7">
-                                <a href="#" class="btn btn-primary btn-lg o_website_form_send">Send</a>
-                                <span id="o_website_form_result"></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </xpath>
-    </template>
-
-    <!-- Update header comments counter -->
-    <template id="opt_blog_post_regular_cover" name="'Regular' Cover" inherit_id="website_blog.opt_blog_post_regular_cover">
-        <xpath expr="//i[hasclass('fa-comment')]/../.." position="replace">
-            <div class="text-muted mb-2">
-                <i class="fa fa-clock-o fa-fw"/>
-                <span t-field="blog_post.post_date" class="text-muted" t-options='{"format": "d MMMM, yyyy"}'/>
-                <span>by
-                    <t t-call="website_blog.post_author">
-                        <t t-set="additionnal_classes" t-value="'d-inline-flex mr-2'"/>
-                        <t t-set="hide_date" t-value="True"/>
-                    </t>
-                </span>
-                <span t-if="len(blog_post.validated_comment_ids) > 0" class="text-nowrap pl-2">|
-                    <i class="fa fa-comment text-muted mr-1"/><t t-esc="len(blog_post.validated_comment_ids)"/>
-                    <t t-if="len(blog_post.validated_comment_ids)>1">Comments</t>
-                    <t t-else="">Comment</t>
-                </span>
-                <span t-elif="opt_blog_post_comment">| No comments yet</span>
-            </div>
-        </xpath>
-    </template>
-
-
     <record id="public_comment_form" model="ir.ui.view">
         <field name="name">public_comment_form</field>
         <field name="model">public.comment</field>
@@ -183,6 +78,7 @@
         <field name="res_model">public.comment</field>
         <field name="view_mode">tree,form</field>
     </record>
+    
     <menuitem id="menu_blog_public_comment" parent="website_blog.menu_website_blog_root_global" name="Comments" action="action_blog_public_comments"/>
 
 </data>
