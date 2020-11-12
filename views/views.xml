@@ -44,6 +44,24 @@
                                 <textarea class="form-control o_website_form_input" rows="5" name="content" required=""></textarea>
                             </div>
                         </div>
+                        <hr/>
+                        <div class="form-group row form-field o_website_form_custom o_website_form_required_custom">
+                            <div class="col-lg-3 col-md-4">
+                                <t t-set="nb_alea" t-value="blog_post.get_out_img_nb()"/>
+                                <img class="out_img" t-att-src="'/website_blog_public_user_comment/static/src/img/out_{}.png'.format(nb_alea)" alt="out"/>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="text" class="form-control o_website_form_input" name="outtxt" required=""/>
+                            </div>
+                        </div>
+                        <div class="form-group row form-field d-none">
+                            <div class="col-lg-3 col-md-4">
+                                <label class="col-form-label" for="nb_alea">Nb alea</label>
+                            </div>
+                            <div class="col-lg-7 col-md-8">
+                                <input type="hidden" class="form-control o_website_form_input" name="nb_alea" t-att-value="nb_alea"/>
+                            </div>
+                        </div>
                         <div class="form-group row form-field d-none">
                             <div class="col-lg-3 col-md-4">
                                 <label class="col-form-label" for="blog_post_id">Blog post</label>
