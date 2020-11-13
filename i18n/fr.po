@@ -1,0 +1,214 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_blog_public_user_comment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-13 09:52+0000\n"
+"PO-Revision-Date: 2020-11-13 11:01+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Language: fr\n"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_form
+msgid "Back to new"
+msgstr "Retour à 'Nouveau'"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model,name:website_blog_public_user_comment.model_blog_post
+msgid "Blog Post"
+msgstr "Article de blog"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__blog_post_id
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_search
+msgid "Blog post"
+msgstr "Article de blog"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_regular_cover
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_form
+msgid "Comment"
+msgstr "Commentaire"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Comment section"
+msgstr "Espace commentaire"
+
+#. module: website_blog_public_user_comment
+#: model:ir.actions.act_window,name:website_blog_public_user_comment.action_blog_public_comments
+#: model:ir.ui.menu,name:website_blog_public_user_comment.menu_blog_public_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_regular_cover
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_tree
+msgid "Comments"
+msgstr "Commentaires"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__content
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__limited_content
+msgid "Content"
+msgstr "Contenu"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_form
+msgid "Delete comment"
+msgstr "Supprimer le commentaire"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_form
+msgid "Do you really want to delete the comment ?"
+msgstr "Voulez vous vraiment supprimer le commentaire ?"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__email
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Email"
+msgstr "Email"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_search
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Leave us a comment"
+msgstr "Laissez nous un commentaire"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__nb_alea
+msgid "Nb Alea"
+msgstr "Nb Alea"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Nb alea"
+msgstr "Nb alea"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields.selection,name:website_blog_public_user_comment.selection__public_comment__state__new
+msgid "New"
+msgstr "Nouveau"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_search
+msgid "New comments"
+msgstr "Nouveau commentaires"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__outtxt
+msgid "Outtxt"
+msgstr "Outtxt"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_blog_post__public_comment_ids
+msgid "Public comments"
+msgstr "Commentaires publics"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model,name:website_blog_public_user_comment.model_public_comment
+msgid "Public user blog comment"
+msgstr "Commentaire d'utilisateur public"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Send"
+msgstr "Envoyer"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_public_comment__state
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_search
+msgid "State"
+msgstr "État"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_form
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_tree
+msgid "Validate"
+msgstr "Valider"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields.selection,name:website_blog_public_user_comment.selection__public_comment__state__validated
+msgid "Validated"
+msgstr "Validé"
+
+#. module: website_blog_public_user_comment
+#: model:ir.model.fields,field_description:website_blog_public_user_comment.field_blog_post__validated_comment_ids
+msgid "Validated Comment"
+msgstr "Commentaire validé"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.public_comment_search
+msgid "Validated comments"
+msgstr "Commentaires validés"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "Your Name"
+msgstr "Votre nom"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_regular_cover
+msgid "by"
+msgstr "Par"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_comment
+msgid "out"
+msgstr "out"
+
+#. module: website_blog_public_user_comment
+#: model_terms:ir.ui.view,arch_db:website_blog_public_user_comment.opt_blog_post_regular_cover
+msgid "| No comments yet"
+msgstr "| Pas encore de commentaire"
