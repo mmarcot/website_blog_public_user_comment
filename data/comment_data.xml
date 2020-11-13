@@ -2,8 +2,6 @@
 <odoo>
 <data>
     <record id="website_blog_public_user_comment.model_public_comment" model="ir.model">
-      <field name="website_form_key">send_public_comment</field>
-      <field name="website_form_default_field_id" ref="website_blog_public_user_comment.field_public_comment__content" />
       <field name="website_form_access">True</field>
       <field name="website_form_label">Send a Public Comment</field>
     </record>
