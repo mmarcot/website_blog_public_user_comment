@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from random import randint
+from datetime import datetime, timedelta
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
@@ -16,6 +17,21 @@ class PublicComment(models.Model):
     content = fields.Text('Content', required=True)
     limited_content = fields.Text('Content', compute='_compute_limited_content')
     blog_post_id = fields.Many2one('blog.post', 'Blog post', ondelete='cascade', required=True)
+
+    def create(self, vals):
+        # Add some restrictions to create a comment
+        # 30 seconds delai between 2 comments:
+        last_comment = self.search([], order='create_date desc', limit=1)
+        if last_comment:
+            last_comment = last_comment[0]
+            delta = datetime.now() - last_comment.create_date
+            if delta.seconds < 30:
+                raise ValidationError('Too many comment requests')
+        # content length limited to 5000 characters:
+        if len(vals.get('content','')) > 5000:
+            vals['content'] = vals['content'][:5000]
+
+        return super(PublicComment, self).create(vals)
 
     def button_validate_comment(self):
         for record in self:
