@@ -13,8 +13,6 @@
         'name',
         'email',
         'content',
-        'outtxt',
-        'nb_alea',
         'blog_post_id',
         ]"/>
     </function>

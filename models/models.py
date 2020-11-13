@@ -16,33 +16,6 @@ class PublicComment(models.Model):
     content = fields.Text('Content', required=True)
     limited_content = fields.Text('Content', compute='_compute_limited_content')
     blog_post_id = fields.Many2one('blog.post', 'Blog post', ondelete='cascade', required=True)
-    outtxt = fields.Char() # captcha input text
-    nb_alea = fields.Integer() # captcha number
-
-
-    def create(self, vals):
-        if vals.get('outtxt') and vals.get('nb_alea'):
-            captcha = {
-                0: '14391',
-                1: '88492',
-                2: '39560',
-                3: '49865',
-                4: '44120',
-                5: '80544',
-                6: '81338',
-                7: '38859',
-                8: '78584',
-                9: '58133',
-            }
-            if vals['outtxt'] != captcha[vals['nb_alea']]:
-                raise ValidationError('Wrong captcha')
-        else:
-            raise ValidationError("Comment can't be created because captcha was not provided")
-        # we don't need to store these values in the database
-        vals.pop('outtxt')
-        vals.pop('nb_alea')
-        return super(PublicComment, self).create(vals)
-
 
     def button_validate_comment(self):
         for record in self:
@@ -76,6 +49,3 @@ class BlogPost(models.Model):
                 ('state', '=', 'validated'),
                 ('blog_post_id', '=', blog_post.id),
             ], order='create_date')
-
-    def get_out_img_nb(self):
-        return randint(0,9)
