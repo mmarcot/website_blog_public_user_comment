@@ -19,6 +19,8 @@ Each new comment must be manually validated in order to be displayed below the b
 You can customize the web form by editing the files:
   - **CSS rules**: static/src/scss/style.scss
   - **HTML form**: views/templates.xml
+  
+**REMINDER**: You have to check the 'Allow comments' toggle when you are on the blog post
 
 # Author
 
