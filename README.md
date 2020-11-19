@@ -1,7 +1,7 @@
 Website Blog Public User Comment
 ================================
 
-This a **Odoo module** allowing visitors to comment your blog posts without having to register.
+This is a **Odoo module** allowing visitors to comment your blog posts without having to register.
 
 <img src="https://github.com/mmarcot/website_blog_public_user_comment/blob/main/static/src/img/web_form_en.png?raw=true" width="500" />
 
