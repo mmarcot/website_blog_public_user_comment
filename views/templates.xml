@@ -3,7 +3,11 @@
 	<template id="opt_blog_post_comment" name="Allow Comments" inherit_id="website_blog.opt_blog_post_comment">
         <xpath expr="//div[@id='o_wblog_post_comments']" position="replace">
             <hr class="my-5"/>
-            <div id="comments_wrapper" class="col-md-8 mx-auto py-3 shadow">
+            
+            <t t-if="opt_blog_post_readable" t-set="colwidth" t-value="'col-md-12'"/>
+            <t t-else="" t-set="colwidth" t-value="'col-md-8'"/>
+
+            <div id="comments_wrapper" t-attf-class="mx-auto py-3 shadow #{colwidth}">
                 <div id="public_comments" t-if="len(blog_post.validated_comment_ids)">
                     <h2 class="text-center">Comment section</h2>
                     <t t-foreach="blog_post.validated_comment_ids" t-as="comment">
